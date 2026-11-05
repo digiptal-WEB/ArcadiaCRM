@@ -190,12 +190,21 @@ export function Sidebar({ open = false, onClose }: SidebarProps) {
         <div className="flex h-14 shrink-0 items-center justify-between gap-2 border-b border-border px-4">
           <Link href="/dashboard" className="flex items-center gap-2.5 group">
             <div className="relative flex h-8 w-8 items-center justify-center rounded-lg bg-card-2 border border-primary/30 p-1 shadow-sm transition-transform group-hover:scale-105">
+              {/* Official marks only: white isotype on dark, black on light. */}
+              <Image
+                src="/brand/logo-responsive-2b.png"
+                alt="DIGIPTAL"
+                width={24}
+                height={24}
+                className="logo-on-dark object-contain"
+                priority
+              />
               <Image
                 src="/brand/LOGO_DIGIPTAL_ICON.png"
                 alt="DIGIPTAL"
                 width={24}
                 height={24}
-                className="object-contain"
+                className="logo-on-light object-contain"
                 priority
               />
             </div>

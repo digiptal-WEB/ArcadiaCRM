@@ -132,6 +132,12 @@ html[data-mode="light"] {
   --status-critical: #DC2626;
 }
 
+/* ---- BRAND: logo by mode (white isotype on dark, black on light) ---- */
+html:not([data-mode="light"]) .logo-on-light,
+html[data-mode="light"] .logo-on-dark {
+  display: none;
+}
+
 /* ---- ACCENT: primary color ---- */
 
 :root,

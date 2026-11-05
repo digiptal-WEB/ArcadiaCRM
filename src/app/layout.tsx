@@ -43,9 +43,10 @@ const metadata: Metadata = {
     follow: false,
   },
   icons: {
+    // Official DIGIPTAL isotype: black for light browser chrome, white for dark.
     icon: [
-      { url: "/icon" },
-      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/brand/LOGO_DIGIPTAL_ICON.png", type: "image/png", media: "(prefers-color-scheme: light)" },
+      { url: "/brand/logo-responsive-2b.png", type: "image/png", media: "(prefers-color-scheme: dark)" },
     ],
   },
   formatDetection: {
