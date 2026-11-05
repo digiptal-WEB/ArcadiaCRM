@@ -14,6 +14,7 @@
  */
 
 export const THEME_IDS = [
+  "digiptal",
   "violet",
   "emerald",
   "cobalt",
@@ -23,7 +24,7 @@ export const THEME_IDS = [
 
 export type ThemeId = (typeof THEME_IDS)[number];
 
-export const DEFAULT_THEME: ThemeId = "violet";
+export const DEFAULT_THEME: ThemeId = "digiptal";
 
 export const STORAGE_KEY = "wacrm.theme";
 
@@ -67,6 +68,12 @@ export interface ThemeMeta {
 }
 
 export const THEMES: ReadonlyArray<ThemeMeta> = [
+  {
+    id: "digiptal",
+    name: "DIGIPTAL",
+    tagline: "Identidad oficial DIGIPTAL — Océano profundo y acento Aqua.",
+    swatch: "#1FCCEA",
+  },
   {
     id: "violet",
     name: "Violet",

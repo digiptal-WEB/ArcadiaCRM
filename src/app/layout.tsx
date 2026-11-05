@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
-import { NextIntlClientProvider } from 'next-intl';
-import { getLocale, getMessages, getTranslations } from 'next-intl/server';
-import { Inter } from "next/font/google";
+import { NextIntlClientProvider } from "next-intl";
+import { getLocale, getMessages, getTranslations } from "next-intl/server";
+import { Rubik, Unbounded } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import { ThemeProvider } from "@/hooks/use-theme";
@@ -15,8 +15,13 @@ import {
   THEME_IDS,
 } from "@/lib/themes";
 
-const inter = Inter({
+const rubik = Rubik({
   variable: "--font-sans",
+  subsets: ["latin"],
+});
+
+const unbounded = Unbounded({
+  variable: "--font-heading",
   subsets: ["latin"],
 });
 
@@ -30,15 +35,18 @@ export async function generateMetadata(): Promise<Metadata> {
 
 const metadata: Metadata = {
   title: {
-    default: "wacrm",
-    template: "%s — wacrm",
+    default: "Arcadia CRM · DIGIPTAL",
+    template: "%s — Arcadia CRM",
   },
   robots: {
     index: false,
     follow: false,
   },
   icons: {
-    icon: [{ url: "/icon" }],
+    icon: [
+      { url: "/icon" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
   },
   formatDetection: {
     email: false,
@@ -48,7 +56,7 @@ const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#020617",
+  themeColor: "#010C28",
   colorScheme: "dark light",
 };
 
@@ -57,11 +65,6 @@ export const viewport: Viewport = {
 // element before first paint. Without this every page load flashes
 // the server-rendered defaults for a frame before the React tree
 // mounts and applies the picked values.
-//
-// Kept dependency-free (no imports, no JSX) — must be a string the
-// browser can run as a single <script>. Knowledge of valid ids is
-// sourced from the THEME_IDS / MODES constants so adding one doesn't
-// silently break the boot path.
 const THEME_BOOT_SCRIPT = `
 (function(){
   var d = document.documentElement;
@@ -97,14 +100,7 @@ export default async function RootLayout({
       lang={locale}
       data-theme={DEFAULT_THEME}
       data-mode={DEFAULT_MODE}
-      className={`${inter.variable} h-full antialiased`}
-      // The `theme-boot` script below rewrites `data-theme` and
-      // `data-mode` on <html> from localStorage before React hydrates,
-      // so for any non-default choice the client DOM intentionally
-      // differs from the server-rendered defaults. suppressHydration-
-      // Warning silences the expected mismatch — it only applies to
-      // this element's own attributes, so genuine mismatches in
-      // children still surface.
+      className={`${rubik.variable} ${unbounded.variable} h-full antialiased`}
       suppressHydrationWarning
     >
       <head>
