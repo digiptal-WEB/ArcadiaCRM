@@ -154,6 +154,21 @@ html[data-theme="digiptal"] {
   --sidebar-ring: #1FCCEA;
 }
 
+/* Brand cyan reads at ~1.8:1 on light surfaces; use a deeper cyan there
+   (≥5.1:1 on white, #F7F5F1 and #F3F4F6; white text on it is 5.7:1). */
+html[data-mode="light"][data-theme="digiptal"] {
+  --primary: #06708D;
+  --primary-foreground: #FFFFFF;
+  --primary-hover: #055C74;
+  --primary-soft: rgba(6, 112, 141, 0.10);
+  --primary-soft-2: rgba(6, 112, 141, 0.18);
+  --ring: #06708D;
+  --chart-1: #06708D;
+  --sidebar-primary: #06708D;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-ring: #06708D;
+}
+
 html[data-theme="violet"] {
   --primary: oklch(0.526 0.247 293);
   --primary-foreground: oklch(0.985 0 0);
